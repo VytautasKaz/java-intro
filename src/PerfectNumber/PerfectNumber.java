@@ -4,7 +4,7 @@ public class PerfectNumber {
     public static void main(String[] args) {
         for (int i = 1; i <= 1000; i++) {
             if(isPerfectNumber(i)){
-                System.out.println("Skaicius " + i + " yra tobulas.");
+                System.out.println("Number " + i + " is perfect.");
             }
         }
     }
