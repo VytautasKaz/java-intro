@@ -16,6 +16,9 @@ public class StudentsClass {
     }
 
     public void setName(String name) {
+        if (name == null || name.length() == 0){
+            throw new IllegalArgumentException("Invalid name.");
+        }
         this.name = name;
     }
 
@@ -24,6 +27,9 @@ public class StudentsClass {
     }
 
     public void setSurname(String surname) {
+        if (name == null || name.length() == 0){
+            throw new IllegalArgumentException("Invalid surname.");
+        }
         this.surname = surname;
     }
 
@@ -32,7 +38,11 @@ public class StudentsClass {
     }
 
     public void setGrade(int grade) {
+        if (grade < 1){
+            throw new IllegalArgumentException("Grade cannot be lower than 1.");
+        }
         this.grade = grade;
     }
 }
+
 
