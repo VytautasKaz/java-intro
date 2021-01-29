@@ -3,6 +3,10 @@ package tournament;
 public class Person extends Player {
     private String name;
 
+    public Person(String name){
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -12,7 +16,12 @@ public class Person extends Player {
     }
 
     @Override
-    public String name() {
-        return name();
+    public String nameInAPair() {
+        return name;
+    }
+
+    @Override
+    public String winner() {
+        return name;
     }
 }
