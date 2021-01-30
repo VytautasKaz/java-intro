@@ -11,8 +11,8 @@ public class Main {
 
         System.out.println(person1.getNr() + ". " + person1.nameInAPair());
         System.out.println(person2.getNr() + ". " + person2.nameInAPair());
-        System.out.println(m1.getNr() + ". " + m1.nameInAPair());
-        System.out.println(m2.getNr() + ". " + m2.nameInAPair());
-        System.out.println(m3.getNr() + ". " + m3.nameInAPair());
+        System.out.println(m1.getNumber() + ". " + m1.nameInAPair());
+        System.out.println(m2.getNumber() + ". " + m2.nameInAPair());
+        System.out.println(m3.getNumber() + ". " + m3.nameInAPair());
     }
 }
