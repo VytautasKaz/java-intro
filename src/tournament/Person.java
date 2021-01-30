@@ -17,11 +17,11 @@ public class Person extends Player {
 
     @Override
     public String nameInAPair() {
-        return name;
+        return getName();
     }
 
     @Override
     public String winner() {
-        return name;
+        return getName();
     }
 }

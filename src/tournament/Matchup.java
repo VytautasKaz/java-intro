@@ -11,7 +11,15 @@ public class Matchup extends Player {
 
     @Override
     public String winner() {
-        return this.getNr() + " matchup winner";
+        if (getNr() == 1){
+            return this.getNr() + "st matchup winner";
+        } else if (getNr() == 2){
+            return this.getNr() + "nd matchup winner";
+        } else if (getNr() == 3){
+            return this.getNr() + "rd matchup winner";
+        } else {
+            return this.getNr() + "th matchup winner";
+        }
     }
 
     @Override

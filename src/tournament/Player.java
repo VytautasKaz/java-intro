@@ -1,6 +1,6 @@
 package tournament;
 
-public class Player {
+public abstract class Player {
     static private int counter;
     private int nr;
 
@@ -12,11 +12,7 @@ public class Player {
         return nr;
     }
 
-    public String winner(){
-        return "";
-    }
+    public abstract String winner();
 
-    public String nameInAPair(){
-        return "";
-    }
+    public abstract String nameInAPair();
 }
