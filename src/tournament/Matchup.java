@@ -16,6 +16,14 @@ public class Matchup extends Player {
         return number;
     }
 
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Matchup.count = count;
+    }
+
     @Override
     public String winner() {
         if (getNumber() == 1){

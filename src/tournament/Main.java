@@ -1,5 +1,8 @@
 package tournament;
 
+import static tournament.Matchup.setCount;
+import static tournament.Player.setCounter;
+
 public class Main {
     public static void main(String[] args) {
 //        Person person1 = new Person("A");
@@ -16,6 +19,11 @@ public class Main {
 //        System.out.println(m3.getNumber() + ". " + m3.nameInAPair());
         Player[] players = primaryData();
         int stage = 1;
+        do {
+        players = stage(players);
+        print(stage, players);
+        stage++;
+        } while (players.length > 1);
     }
     static Player[] primaryData() {
         Player[] players = new Player[] {
@@ -26,7 +34,15 @@ public class Main {
                 new Person("E"),
                 new Person("F"),
                 new Person("G"),
-                new Person("H")
+                new Person("H"),
+                new Person("I"),
+                new Person("J"),
+                new Person("K"),
+                new Person("L"),
+                new Person("M"),
+                new Person("N"),
+                new Person("O"),
+                new Person("P")
         };
 
         System.out.println("Players:");
@@ -34,19 +50,31 @@ public class Main {
         for (Player p : players){
             System.out.println(p.getNr() + ". " + p.nameInAPair());
         }
+        setCounter(0);
         return players;
     }
 
-    static Player[] stage(int n, Player[] players){
+    static Player[] stage(Player[] players){
         Player[] pairings = new Player[players.length / 2];
-
-        System.out.println("Pairings:");
 
         for (int i = 0; i < pairings.length; i++){
             int x = i * 2;
             pairings[i] = new Matchup(players[x], players[x + 1]);
         }
+        setCounter(0);
 
         return pairings;
+    }
+
+    static void print(int n, Player[] players){
+        System.out.println("Stage " + n + ": ");
+        for (Player p : players){
+            if (players.length < 2){
+                System.out.println("First semifinal winner" + " - " + "Second semifinal winner");
+                break;
+            }
+            System.out.println(p.getNr() + ". " + p.nameInAPair());
+        }
+        setCount(0);
     }
 }

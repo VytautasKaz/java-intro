@@ -12,6 +12,14 @@ public abstract class Player {
         return nr;
     }
 
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Player.counter = counter;
+    }
+
     public abstract String winner();
 
     public abstract String nameInAPair();
