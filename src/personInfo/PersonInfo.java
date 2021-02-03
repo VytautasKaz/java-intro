@@ -1,16 +1,14 @@
 package personInfo;
 
-import java.math.BigInteger;
-
 public class PersonInfo {
     private String firstName;
     private String lastName;
-    private BigInteger socialSecurity;
+    private String socialSecurity;
 
-    public PersonInfo(String firstName, String lastName, BigInteger socialSecurity) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        setSocialSecurity(socialSecurity);
+    public PersonInfo(String firstName, String lastName, String socialSecurity) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.socialSecurity = socialSecurity;
     }
 
     public String getFirstName() {
@@ -29,20 +27,12 @@ public class PersonInfo {
         this.lastName = lastName;
     }
 
-    public BigInteger getSocialSecurity() {
+    public String getSocialSecurity() {
         return socialSecurity;
     }
 
-    public void setSocialSecurity(BigInteger socialSecurity) {
+    public void setSocialSecurity(String socialSecurity) {
         this.socialSecurity = socialSecurity;
     }
 
-    @Override
-    public String toString() {
-        return "PersonInfo{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", socialSecurity=" + socialSecurity +
-                '}';
-    }
 }
