@@ -1,5 +1,7 @@
 package IBAN_validation;
 
+import java.math.BigInteger;
+
 public class IBAN {
     public static boolean isValidIBAN(String iban){
         iban = removeSpaces(iban);
@@ -14,8 +16,10 @@ public class IBAN {
         iban = decode(iban);
         System.out.println(iban);
         // 4. Interpret the string as a decimal integer and compute the remainder of that number on division by 97
+        BigInteger ibanNumber = new BigInteger(iban);
+        BigInteger remainder = ibanNumber.remainder(BigInteger.valueOf(97));
 
-        return false;
+        return remainder.equals(BigInteger.ONE);
     }
     private static String removeSpaces(String x){
         return x.replace(" ", "");
