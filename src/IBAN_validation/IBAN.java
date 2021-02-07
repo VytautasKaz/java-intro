@@ -14,7 +14,6 @@ public class IBAN {
 
         // 3. Replace each letter in the string with two digits, thereby expanding the string, where A = 10, B = 11, ..., Z = 35
         iban = decode(iban);
-        System.out.println(iban);
         // 4. Interpret the string as a decimal integer and compute the remainder of that number on division by 97
         BigInteger ibanNumber = new BigInteger(iban);
         BigInteger remainder = ibanNumber.remainder(BigInteger.valueOf(97));
