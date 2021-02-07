@@ -3,7 +3,7 @@ package IBAN_validation;
 import java.math.BigInteger;
 
 public class IBAN {
-    public static boolean isValidIBAN(String iban){
+    public boolean isValidIBAN(String iban){
         iban = removeSpaces(iban);
 
         // TODO...

@@ -17,7 +17,7 @@ public class Main {
     private static void interactiveMode(){
         Scanner scanner = new Scanner(System.in);
 
-//        IBAN iban = new IBAN();
+        IBAN iban = new IBAN();
 
         while (true) {
             System.out.print("Enter IBAN: ");
@@ -26,17 +26,33 @@ public class Main {
 
             if (acc.length() == 0) break;
 
-            System.out.println("IBAN: " + acc + "; Validity: " + IBAN.isValidIBAN(acc));
+            boolean isValid = iban.isValidIBAN(acc);
+
+            System.out.println("IBAN: " + acc + "; Validity: " + isValid);
         }
     }
 
     private static void fileMode(String filename){
+        IBAN iban = new IBAN();
+
         try {
-            Reader reader = new FileReader(filename);
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
 
-            String filenameOut = filename + ".out";
+            int dot = filename.lastIndexOf('.');
 
-            Writer writer = new FileWriter(filenameOut);
+            String name = dot == -1 ? filename : filename.substring(0, dot);
+
+            String filenameOut = name + ".out";
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filenameOut));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+
+                boolean isValid = iban.isValidIBAN(line);
+
+                writer.write(line + "; " + isValid + '\n');
+            }
 
             reader.close();
             writer.close();
