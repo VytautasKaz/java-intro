@@ -20,7 +20,7 @@ public class Main {
 
         while (scanner.hasNext())
         {
-            demo.add(scanner.nextLine());
+            demo.add(scanner.next());
         }
         System.out.println(demo);
         System.out.println(demo.size());
