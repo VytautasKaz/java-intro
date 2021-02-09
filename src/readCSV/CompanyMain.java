@@ -12,8 +12,8 @@ public class CompanyMain {
         List<Company> companies = companyService.read(args[0]);
 
         companies.forEach(company -> {
-            System.out.println(company.getId() + " " + company.getDate() + " " + company.getName() +
-                    " " + company.getQuantity() + " " + company.getPrice());
+            System.out.println(company.getId() + ". " + company.getDate() + " | " + company.getName() +
+                    " | " + company.getQuantity() + " | " + company.getPrice());
         });
     }
 }

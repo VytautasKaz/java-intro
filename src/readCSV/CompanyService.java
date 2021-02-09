@@ -36,13 +36,31 @@ public class CompanyService implements ICompanyService {
     private Company parse(String line){
         String[] fields = line.split(",");
         if (fields.length != 5) return null;
-        Company company = new Company();
-        company.setId(Integer.parseInt(fields[0]));
-        company.setDate(LocalDate.parse(fields[1]));
-        company.setName(fields[2]);
-        company.setQuantity(Integer.parseInt(fields[3]));
-        company.setPrice(new BigDecimal(fields[4]));
 
-        return company;
+        try {
+            Company company = new Company();
+            company.setId(Integer.parseInt(fields[0]));
+            company.setDate(LocalDate.parse(fields[1]));
+            company.setName(parseString(fields[2]));
+            company.setQuantity(Integer.parseInt(fields[3]));
+            company.setPrice(new BigDecimal(fields[4]));
+
+            return company;
+        } catch (Exception e){
+            System.err.println("Wrong data: " + line);
+        }
+        return null;
+    }
+
+    private String parseString(String str) {
+        if (str == null || str.length() == 0) return str;
+
+        str = str.replaceAll("\"\"", "\"");
+
+        if (str.charAt(0) != '"') return str;
+
+        str = str.substring(1, str.length() - 1);
+
+        return str;
     }
 }
