@@ -1,0 +1,50 @@
+PrimeNum/PrimeNum.java
+ PrimeNum.PrimeNum
+tournament/Person.java
+ tournament.Person
+DescendingSort/DescendingSort.java
+ DescendingSort.DescendingSort
+csv_demo/Main.java
+ csv_demo.Main
+multTable/MultTable.java
+ multTable.MultTable
+Triangles/Triangles.java
+ Triangles.Triangles
+chessGrains/chessGrains.java
+ chessGrains.chessGrains
+personInfo/PersonInfo.java
+ personInfo.PersonInfo
+addresses/Main.java
+ addresses.Main
+IBAN_validation/Main.java
+ IBAN_validation.Main
+Students/Students.java
+ Students.Students
+Students/StudentsClass.java
+ Students.StudentsClass
+tournament/Main.java
+ tournament.Main
+PerfectNumber/PerfectNumber.java
+ PerfectNumber.PerfectNumber
+readCSV/CompanyMain.java
+ readCSV.CompanyMain
+tournament/Player.java
+ tournament.Player
+personInfo/Main.java
+ personInfo.Main
+Average/Average.java
+ Average.Average
+readCSV/CompanyService.java
+ readCSV.CompanyService
+IBAN_validation/IBAN.java
+ IBAN_validation.IBAN
+readCSV/Company.java
+ readCSV.Company
+HelloWorld/HelloWorld.java
+ HelloWorld.HelloWorld
+addresses/Address.java
+ addresses.Address
+tournament/Matchup.java
+ tournament.Matchup
+readCSV/ICompanyService.java
+ readCSV.ICompanyService
