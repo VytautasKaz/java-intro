@@ -23,6 +23,14 @@ public class JSONDemo {
         String json = objectMapper.enable(SerializationFeature.INDENT_OUTPUT).writeValueAsString(companies);
 
         System.out.println(json);
+
+        // converting json string to List element:
+
+        String json2 = objectMapper.writeValueAsString(companies.get(0));
+
+        Company company = objectMapper.readValue(json2, Company.class);
+
+        System.out.println(company);
     }
 }
 
@@ -30,6 +38,8 @@ class Company {
     private String name;
     private BigDecimal debt;
     private Address address;
+
+    public Company() {}
 
     public Company(String name, BigDecimal debt, Address address) {
         this.name = name;
@@ -60,11 +70,22 @@ class Company {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", debt=" + debt +
+                ", address=" + address +
+                '}';
+    }
 }
 
 class Address {
     private String index;
     private String city;
+
+    public Address() {}
 
     public Address(String index, String city) {
         this.index = index;
@@ -85,5 +106,13 @@ class Address {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "index='" + index + '\'' +
+                ", city='" + city + '\'' +
+                '}';
     }
 }

@@ -16,8 +16,8 @@ personInfo/PersonInfo.java
  personInfo.PersonInfo
 readCSV/ICompanyService.java
  readCSV.ICompanyService
-addresses/Main.java
- addresses.Main
+tournament/Matchup.java
+ tournament.Matchup
 IBAN_validation/Main.java
  IBAN_validation.Main
 Students/Students.java
@@ -46,9 +46,9 @@ HelloWorld/HelloWorld.java
  HelloWorld.HelloWorld
 addresses/Address.java
  addresses.Address
-tournament/Matchup.java
- tournament.Matchup
 JSON_demo/JSONDemo.java
  JSON_demo.Address
  JSON_demo.Company
  JSON_demo.JSONDemo
+addresses/Main.java
+ addresses.Main
