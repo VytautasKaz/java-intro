@@ -17,4 +17,5 @@ sourceSets {
 }
 dependencies {
     compile 'junit:junit:4.12'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
 }

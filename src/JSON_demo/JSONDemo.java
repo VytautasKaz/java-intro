@@ -1,11 +1,15 @@
 package JSON_demo;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JSONDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         List<Company> companies = new ArrayList<>();
         companies.add(new Company("Microsoft",
                 new BigDecimal(123123.35),
@@ -13,6 +17,12 @@ public class JSONDemo {
         companies.add(new Company("Google",
                 new BigDecimal(321321.45),
                 new Address("LT-54123", "Kaunas")));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String json = objectMapper.enable(SerializationFeature.INDENT_OUTPUT).writeValueAsString(companies);
+
+        System.out.println(json);
     }
 }
 

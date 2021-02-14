@@ -14,6 +14,8 @@ chessGrains/chessGrains.java
  chessGrains.chessGrains
 personInfo/PersonInfo.java
  personInfo.PersonInfo
+readCSV/ICompanyService.java
+ readCSV.ICompanyService
 addresses/Main.java
  addresses.Main
 IBAN_validation/Main.java
@@ -46,5 +48,7 @@ addresses/Address.java
  addresses.Address
 tournament/Matchup.java
  tournament.Matchup
-readCSV/ICompanyService.java
- readCSV.ICompanyService
+JSON_demo/JSONDemo.java
+ JSON_demo.Address
+ JSON_demo.Company
+ JSON_demo.JSONDemo
