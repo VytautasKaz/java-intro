@@ -1,15 +1,18 @@
 package api_demo;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 public class API_Main {
-    private static final String API_KEY = "API-KEY-HERE";
+    private static final String API_KEY = "API-KEY";
 
     public static void main(String[] args) throws MalformedURLException, UnsupportedEncodingException {
 
@@ -28,13 +31,101 @@ public class API_Main {
                 "&lang=en-US" +
                 "&apiKey=" + API_KEY);
 
-        try {
-            InputStream inStream = url.openStream();
-            inStream.close();
-        } catch (IOException e) {
+        System.out.println(url.toString());
+
+        try(
+                InputStream inStream = url.openStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+        ){
+//            inStream.close();
+//            String line;
+//            while ((line = reader.readLine()) != null){
+//                  System.out.println(line);
+//            }
+            ObjectMapper mapper = new ObjectMapper();
+            Map m = mapper.readValue(reader, Map.class);
+
+            System.out.println(m);
+
+            String label1 = (String) ((Map) ((List) m.get("items")).get(0)).get("title");
+            System.out.println(label1);
+
+            Response response1 = mapper.readValue(url, Response.class);
+            System.out.println(response1);
+            System.out.println("id: " + response1.getItems().get(0).getId());
+        }
+        catch (IOException e) {
             e.printStackTrace();
             System.out.println("GET request issue.");
         }
 
+    }
+    static class Response {
+        private List<Item> items;
+
+        public List<Item> getItems() {
+            return items;
+        }
+
+        public void setItems(List<Item> items) {
+            this.items = items;
+        }
+
+        @Override
+        public String toString() {
+            return "Response{" +
+                    "items=" + items +
+                    '}';
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static class Item {
+        String title;
+        String id;
+        String ontologyId;
+        String resultType;
+
+        public String getOntologyId() {
+            return ontologyId;
+        }
+
+        public void setOntologyId(String ontologyId) {
+            this.ontologyId = ontologyId;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getResultType() {
+            return resultType;
+        }
+
+        public void setResultType(String resultType) {
+            this.resultType = resultType;
+        }
+
+        @Override
+        public String toString() {
+            return "Item{" +
+                    "title='" + title + '\'' +
+                    ", id='" + id + '\'' +
+                    ", ontology='" + ontologyId + '\'' +
+                    ", resultType='" + resultType + '\'' +
+                    '}';
+        }
     }
 }
