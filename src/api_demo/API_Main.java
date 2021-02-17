@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_Main {
-    private static final String API_KEY = "rP6OTcBkgkZW5U4RdhEYr48jHoD7sbLKWTd_OxesWhg";
+    private static final String API_KEY = "API-KEY";
 
     public static void main(String[] args) throws MalformedURLException, UnsupportedEncodingException {
 
