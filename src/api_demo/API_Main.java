@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class API_Main {
-    private static final String API_KEY = "API-KEY";
+    private static final String API_KEY = "rP6OTcBkgkZW5U4RdhEYr48jHoD7sbLKWTd_OxesWhg";
 
     public static void main(String[] args) throws MalformedURLException, UnsupportedEncodingException {
 
@@ -33,6 +33,10 @@ public class API_Main {
 
         System.out.println(url.toString());
 
+        ObjectMapper mapper = new ObjectMapper();
+
+        // reading from Reader
+
         try(
                 InputStream inStream = url.openStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
@@ -42,7 +46,6 @@ public class API_Main {
 //            while ((line = reader.readLine()) != null){
 //                  System.out.println(line);
 //            }
-            ObjectMapper mapper = new ObjectMapper();
             Map m = mapper.readValue(reader, Map.class);
 
             System.out.println(m);
@@ -50,11 +53,19 @@ public class API_Main {
             String label1 = (String) ((Map) ((List) m.get("items")).get(0)).get("title");
             System.out.println(label1);
 
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("GET request issue.");
+        }
+
+        // reading from url
+
+        try {
             Response response1 = mapper.readValue(url, Response.class);
             System.out.println(response1);
             System.out.println("id: " + response1.getItems().get(0).getId());
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("GET request issue.");
         }
